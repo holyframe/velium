@@ -23,12 +23,7 @@ import {
   DEFAULT_APP_SETTINGS,
   ENABLE_APP_UPDATES,
 } from '../config';
-import {
-  electronVersion,
-  isMac,
-  isWinPortable,
-  osRelease,
-} from '../environment';
+import { electronVersion, isMac, isWindows, osRelease } from '../environment';
 import {
   ferdiumLocale,
   ferdiumVersion,
@@ -50,15 +45,12 @@ const debug = require('../preload-safe-debug')('Velium:AppStore');
 
 const mainWindow = getCurrentWindow();
 
-const executablePath = isMac
-  ? remoteProcess.execPath
-  : isWinPortable
-    ? process.env.PORTABLE_EXECUTABLE_FILE
-    : process.execPath;
-const autoLauncher = new AutoLaunch({
-  name: 'Velium',
-  path: executablePath,
-});
+const autoLauncher = isWindows
+  ? null
+  : new AutoLaunch({
+      name: 'Velium',
+      path: isMac ? remoteProcess.execPath : process.execPath,
+    });
 
 const CATALINA_NOTIFICATION_HACK_KEY =
   '_temp_askedForCatalinaNotificationPermissions';
@@ -135,8 +127,6 @@ export default class AppStore extends TypedStore {
 
   @observable isLockingFeatureEnabled =
     DEFAULT_APP_SETTINGS.isLockingFeatureEnabled;
-
-  @observable launchInBackground = DEFAULT_APP_SETTINGS.autoLaunchInBackground;
 
   fetchDataInterval: NodeJS.Timeout | null = null;
 
@@ -549,16 +539,24 @@ export default class AppStore extends TypedStore {
     });
   }
 
-  @action _launchOnStartup({ enable }) {
-    this.autoLaunchOnStart = enable;
-
+  @action async _launchOnStartup({
+    enable,
+    openInBackground = DEFAULT_APP_SETTINGS.autoLaunchInBackground,
+  }) {
     try {
-      if (enable) {
-        debug('enabling launch on startup', executablePath);
-        autoLauncher.enable();
+      if (isWindows) {
+        this.autoLaunchOnStart = await ipcRenderer.invoke('set-auto-launch', {
+          enable,
+          openInBackground,
+        });
+      } else if (enable) {
+        debug('enabling launch on startup');
+        await autoLauncher?.enable();
+        this.autoLaunchOnStart = (await autoLauncher?.isEnabled()) || false;
       } else {
         debug('disabling launch on startup');
-        autoLauncher.disable();
+        await autoLauncher?.disable();
+        this.autoLaunchOnStart = (await autoLauncher?.isEnabled()) || false;
       }
     } catch (error) {
       console.warn(error);
@@ -842,16 +840,20 @@ export default class AppStore extends TypedStore {
   async _autoStart() {
     this.autoLaunchOnStart = await this._checkAutoStart();
 
-    if (this.stores.settings.all.stats.appStarts === 1) {
+    if (!isWindows && this.stores.settings.all.stats.appStarts === 1) {
       debug('Set app to launch on start');
-      this.actions.app.launchOnStartup({
+      await this._launchOnStartup({
         enable: true,
       });
     }
   }
 
   async _checkAutoStart() {
-    return autoLauncher.isEnabled() || false;
+    if (isWindows) {
+      return (await ipcRenderer.invoke('get-auto-launch')) || false;
+    }
+
+    return (await autoLauncher?.isEnabled()) || false;
   }
 
   async _systemDND() {

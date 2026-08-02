@@ -419,6 +419,8 @@ class EditSettingsScreen extends Component<
     const { app: currentSettings } = this.props.stores.settings.all;
 
     const newSettings = {
+      autoLaunchOnStart: Boolean(settingsData.autoLaunchOnStart),
+      autoLaunchInBackground: Boolean(settingsData.autoLaunchInBackground),
       runInBackground: Boolean(settingsData.runInBackground),
       enableSystemTray: Boolean(settingsData.enableSystemTray),
       reloadAfterResume: Boolean(settingsData.reloadAfterResume),
@@ -689,7 +691,7 @@ class EditSettingsScreen extends Component<
         autoLaunchInBackground: {
           label: intl.formatMessage(messages.autoLaunchInBackground),
           value: ifUndefined<boolean>(
-            app.launchInBackground,
+            settings.all.app.autoLaunchInBackground,
             DEFAULT_APP_SETTINGS.autoLaunchInBackground,
           ),
           default: DEFAULT_APP_SETTINGS.autoLaunchInBackground,

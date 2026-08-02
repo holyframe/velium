@@ -518,6 +518,7 @@ const createWindow = () => {
   });
 
   if (
+    process.argv.includes('--launch-in-background') ||
     retrieveSettingValue('startMinimized', DEFAULT_APP_SETTINGS.startMinimized)
   ) {
     mainWindow.hide();

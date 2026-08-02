@@ -13,6 +13,7 @@ export default <ActionDefinitions>{
   },
   launchOnStartup: {
     enable: PropTypes.bool.isRequired,
+    openInBackground: PropTypes.bool,
   },
   openExternalUrl: {
     url: PropTypes.string.isRequired,

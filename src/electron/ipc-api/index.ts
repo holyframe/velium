@@ -1,6 +1,7 @@
 import type { BrowserWindow } from 'electron';
 import type TrayIcon from '../../lib/Tray';
 import appIndicator from './appIndicator';
+import autoLaunch from './autoLaunch';
 // eslint-disable-next-line import/no-cycle
 import autoUpdate from './autoUpdate';
 import dnd from './dnd';
@@ -18,6 +19,7 @@ export default (params: {
   trayIcon: TrayIcon;
 }) => {
   settings(params);
+  autoLaunch({ settings: params.settings.app });
   sessionStorage();
   autoUpdate(params);
   appIndicator(params);
