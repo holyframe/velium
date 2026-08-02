@@ -19,13 +19,13 @@ import matchRoute from '../helpers/routing-helpers';
 import { isInTimeframe } from '../helpers/schedule-helpers';
 import { SPELLCHECKER_LOCALES } from '../i18n/languages';
 import { cleanseJSObject } from '../jsUtils';
-import type { UnreadServices } from '../lib/dbus/Ferdium';
+import type { UnreadServices } from '../lib/dbus/Velium';
 import type Service from '../models/Service';
 import CachedRequest from './lib/CachedRequest';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:ServiceStore');
+const debug = require('../preload-safe-debug')('Velium:ServiceStore');
 
 export default class ServicesStore extends TypedStore {
   @observable allServicesRequest: CachedRequest = new CachedRequest(
@@ -632,7 +632,7 @@ export default class ServicesStore extends TypedStore {
       if (!pathExistsSync(filePath)) {
         writeFileSync(
           filePath,
-          `module.exports = (config, Ferdium) => {
+          `module.exports = (config, Velium) => {
   // Write your scripts here
   console.log("Hello, World!", config);
 };
@@ -767,7 +767,7 @@ export default class ServicesStore extends TypedStore {
       const service = this.active;
       if (service) {
         if (service._webview) {
-          document.title = `Ferdium - ${service.name} ${
+          document.title = `Velium - ${service.name} ${
             service.dialogTitle ? ` - ${service.dialogTitle}` : ''
           } ${service._webview ? `- ${service._webview.getTitle()}` : ''}`;
           this._focusService({ serviceId: service.id });
@@ -1265,7 +1265,7 @@ export default class ServicesStore extends TypedStore {
     const service = this.active;
     if (service) {
       this.actions.service.focusService({ serviceId: service.id });
-      document.title = `Ferdium - ${service.name} ${
+      document.title = `Velium - ${service.name} ${
         service.dialogTitle ? ` - ${service.dialogTitle}` : ''
       } ${service._webview ? `- ${service._webview.getTitle()}` : ''}`;
     } else {

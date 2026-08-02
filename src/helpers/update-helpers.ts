@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/core';
 import { type IntlShape, defineMessages } from 'react-intl';
 
-export const getFerdiumVersion = (
+export const getVeliumVersion = (
   currentLocation: string,
   ferdiumVersion: string,
 ): string => {
@@ -50,7 +50,7 @@ export async function getUpdateInfoFromGH(
       {
         owner: 'ferdium',
         repo: 'ferdium-app',
-        tag: getFerdiumVersion(currentLocation, ferdiumVersion),
+        tag: getVeliumVersion(currentLocation, ferdiumVersion),
       },
     );
 

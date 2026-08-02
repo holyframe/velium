@@ -23,7 +23,7 @@ import { acceleratorString, isShiftKeyPress } from '../../../jsUtils';
 
 const IS_SERVICE_DEBUGGING_ENABLED = (
   localStorage.getItem('debug') || ''
-).includes('Ferdium:Service');
+).includes('Velium:Service');
 
 const messages = defineMessages({
   reload: {

@@ -10,7 +10,7 @@ import type CachedRequest from './lib/CachedRequest';
 
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:RequestsStore');
+const debug = require('../preload-safe-debug')('Velium:RequestsStore');
 
 export default class RequestStore extends TypedStore {
   @observable userInfoRequest: CachedRequest;

@@ -7,7 +7,7 @@ import macosVersion from 'macos-version';
 import { askForScreenCaptureAccess } from 'node-mac-permissions';
 import { userDataPath } from '../environment-remote';
 
-const debug = require('../preload-safe-debug')('Ferdium:macOSPermissions');
+const debug = require('../preload-safe-debug')('Velium:macOSPermissions');
 
 const isExplicitScreenCapturePermissionReqd =
   macosVersion.isGreaterThanOrEqualTo('10.15');
@@ -69,7 +69,7 @@ export const askFormacOSPermissions = async (
       type: 'info',
       message: 'Enable Screen Sharing',
       detail:
-        'To enable screen sharing for some services, Ferdium needs the permission to record your screen.',
+        'To enable screen sharing for some services, Velium needs the permission to record your screen.',
       buttons: ['Allow screen sharing', 'No', 'Ask me later'],
       defaultId: 0,
       cancelId: 2,

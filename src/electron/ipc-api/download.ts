@@ -3,7 +3,7 @@ import { BrowserWindow, dialog, ipcMain } from 'electron';
 import { download } from 'electron-dl';
 import { writeFileSync } from 'fs-extra';
 
-const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:download');
+const debug = require('../../preload-safe-debug')('Velium:ipcApi:download');
 
 const decodeBase64Image = (dataString: string) => {
   const matches = dataString.match(/^data:([+/A-Za-z-]+);base64,(.+)$/);

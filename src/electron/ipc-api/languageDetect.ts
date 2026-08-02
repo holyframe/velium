@@ -3,7 +3,7 @@ import { ipcMain } from 'electron';
 import LanguageDetect from 'languagedetect';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:ipcApi:languageDetect',
+  'Velium:ipcApi:languageDetect',
 );
 
 export default async () => {

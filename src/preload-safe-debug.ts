@@ -17,8 +17,8 @@ module.exports = function debug(namespace: string): (...params: any[]) => void {
   ) {
     // Only output debug messages to the console if debugging is requested.
     // We don't reimplement the matching algorithm from `debug` and just dump all
-    // messages to the console if some form of `Ferdium` debugging is enabled.
-    if (process.env.DEBUG?.startsWith('Ferdium:')) {
+    // messages to the console if some form of `Velium` debugging is enabled.
+    if (process.env.DEBUG?.startsWith('Velium:')) {
       // eslint-disable-next-line no-console
       return (...params) => console.debug(`[${namespace}]`, ...params);
     }

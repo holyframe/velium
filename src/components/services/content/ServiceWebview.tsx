@@ -6,7 +6,7 @@ import ElectronWebView from 'react-electron-web-view';
 import type ServiceModel from '../../../models/Service';
 import type { RealStores } from '../../../stores';
 
-const debug = require('../../../preload-safe-debug')('Ferdium:Services');
+const debug = require('../../../preload-safe-debug')('Velium:Services');
 
 interface IProps {
   service: ServiceModel;
@@ -40,7 +40,7 @@ class ServiceWebview extends Component<IProps> {
           });
           this.webview.view.addEventListener('did-navigate', () => {
             if (this.props.service._webview) {
-              document.title = `Ferdium - ${this.props.service.name} ${
+              document.title = `Velium - ${this.props.service.name} ${
                 this.props.service.dialogTitle
                   ? ` - ${this.props.service.dialogTitle}`
                   : ''
@@ -68,7 +68,7 @@ class ServiceWebview extends Component<IProps> {
       webview.view.blur();
       webview.view.focus();
       window.setTimeout(() => {
-        document.title = `Ferdium - ${this.props.service.name} ${
+        document.title = `Velium - ${this.props.service.name} ${
           this.props.service.dialogTitle
             ? ` - ${this.props.service.dialogTitle}`
             : ''

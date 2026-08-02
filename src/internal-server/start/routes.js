@@ -32,13 +32,13 @@ async function validateToken(clientToken, response, next) {
   return response.forbidden();
 }
 
-const OnlyAllowFerdium = async ({ request, response }, next) => {
+const OnlyAllowVelium = async ({ request, response }, next) => {
   const version = request.header('X-Franz-Version');
   if (!version) {
     return response.forbidden();
   }
 
-  const clientToken = request.header('X-Ferdium-Local-Token');
+  const clientToken = request.header('X-Velium-Local-Token');
   return validateToken(clientToken, response, next);
 };
 
@@ -60,7 +60,7 @@ Route.get('health', ({ response }) =>
     api: 'success',
     db: 'success',
   }),
-).middleware(OnlyAllowFerdium);
+).middleware(OnlyAllowVelium);
 
 // API is grouped under '/v1/' route
 Route.group(() => {
@@ -93,7 +93,7 @@ Route.group(() => {
   Route.get('workspace', 'WorkspaceController.list');
 })
   .prefix(API_VERSION)
-  .middleware(OnlyAllowFerdium);
+  .middleware(OnlyAllowVelium);
 
 Route.group(() => {
   Route.get('icon/:id', 'ImageController.icon');
@@ -108,7 +108,7 @@ Route.group(() => {
 
   // Account transfer
   Route.get('export', 'UserController.export');
-  Route.post('transfer', 'UserController.importFerdium');
+  Route.post('transfer', 'UserController.importVelium');
   Route.get('transfer', ({ view }) => view.render('transfer'));
 
   // Index

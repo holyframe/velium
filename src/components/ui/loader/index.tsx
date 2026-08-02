@@ -3,7 +3,7 @@ import { inject } from 'mobx-react';
 import { Component } from 'react';
 import injectStyle, { type WithStylesProps } from 'react-jss';
 import { Oval } from 'react-loader-spinner';
-import type { FerdiumStores } from '../../../@types/stores.types';
+import type { VeliumStores } from '../../../@types/stores.types';
 import { DEFAULT_LOADER_COLOR } from '../../../config';
 
 const styles = () => ({
@@ -21,7 +21,7 @@ interface IProps extends WithStylesProps<typeof styles> {
   color?: string;
   size?: number;
   loaded?: boolean;
-  stores?: FerdiumStores;
+  stores?: VeliumStores;
 }
 
 @inject('stores')

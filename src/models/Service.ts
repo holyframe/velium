@@ -15,7 +15,7 @@ import { ifUndefined } from '../jsUtils';
 import type { IRecipe } from './Recipe';
 import UserAgent from './UserAgent';
 
-const debug = require('../preload-safe-debug')('Ferdium:Service');
+const debug = require('../preload-safe-debug')('Velium:Service');
 
 // Global registry for active partitions
 // This is needed to prevent events of the same partition from being registered multiple times (when using custom sandboxes)

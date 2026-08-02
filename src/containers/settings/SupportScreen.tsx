@@ -1,10 +1,10 @@
-import SupportFerdium from '../../components/settings/supportFerdium/SupportFerdiumDashboard';
+import SupportVelium from '../../components/settings/supportVelium/SupportVeliumDashboard';
 import ErrorBoundary from '../../components/util/ErrorBoundary';
 
 const SupportScreen = () => {
   return (
     <ErrorBoundary>
-      <SupportFerdium />
+      <SupportVelium />
     </ErrorBoundary>
   );
 };

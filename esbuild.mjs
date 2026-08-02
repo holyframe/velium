@@ -65,6 +65,7 @@ const copyManualAssets = () => {
     fs.mkdirSync(outDir);
   }
   fs.copyFileSync('package.json', `${outDir}/package.json`);
+  fs.copyFileSync('pnpm-lock.yaml', `${outDir}/pnpm-lock.yaml`);
   fs.copyFileSync('electron-builder.npmrc', `${outDir}/.npmrc`);
 
   const buildInfoData = {

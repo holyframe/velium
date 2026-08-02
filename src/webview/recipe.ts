@@ -51,7 +51,7 @@ import type Service from '../models/Service';
 // @ts-expect-error Fix this
 window.chrome.runtime.sendMessage = noop;
 
-const debug = require('../preload-safe-debug')('Ferdium:Plugin');
+const debug = require('../preload-safe-debug')('Velium:Plugin');
 
 const badgeHandler = new BadgeHandler();
 

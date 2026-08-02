@@ -33,8 +33,8 @@ import {
   isLinux,
   isMac,
   isWindows,
-  lockFerdiumShortcutKey,
-  muteFerdiumShortcutKey,
+  lockVeliumShortcutKey,
+  muteVeliumShortcutKey,
   nodeVersion,
   osArch,
   settingsShortcutKey,
@@ -176,13 +176,13 @@ export const menuItems = defineMessages({
     id: 'menu.view.reloadService',
     defaultMessage: 'Reload Service',
   },
-  reloadFerdium: {
-    id: 'menu.view.reloadFerdium',
-    defaultMessage: 'Reload Ferdium',
+  reloadVelium: {
+    id: 'menu.view.reloadVelium',
+    defaultMessage: 'Reload Velium',
   },
-  lockFerdium: {
-    id: 'menu.view.lockFerdium',
-    defaultMessage: 'Lock Ferdium',
+  lockVelium: {
+    id: 'menu.view.lockVelium',
+    defaultMessage: 'Lock Velium',
   },
   reloadTodos: {
     id: 'menu.view.reloadTodos',
@@ -222,7 +222,7 @@ export const menuItems = defineMessages({
   },
   debugInfoCopiedHeadline: {
     id: 'menu.help.debugInfoCopiedHeadline',
-    defaultMessage: 'Ferdium Debug Information',
+    defaultMessage: 'Velium Debug Information',
   },
   debugInfoCopiedBody: {
     id: 'menu.help.debugInfoCopiedBody',
@@ -262,7 +262,7 @@ export const menuItems = defineMessages({
   },
   about: {
     id: 'menu.app.about',
-    defaultMessage: 'About Ferdium',
+    defaultMessage: 'About Velium',
   },
   checkForUpdates: {
     id: 'menu.app.checkForUpdates',
@@ -760,7 +760,7 @@ class FranzMenu implements StoresProps {
       (tpl[0].submenu as MenuItemConstructorOptions[]).unshift(
         {
           label: intl.formatMessage(menuItems.touchId),
-          accelerator: `${lockFerdiumShortcutKey()}`,
+          accelerator: `${lockVeliumShortcutKey()}`,
           visible: touchIdEnabled,
           click() {
             systemPreferences
@@ -853,7 +853,7 @@ class FranzMenu implements StoresProps {
           },
         },
         {
-          label: intl.formatMessage(menuItems.reloadFerdium),
+          label: intl.formatMessage(menuItems.reloadVelium),
           accelerator: `${cmdOrCtrlShortcutKey()}+${shiftKey()}+R`,
           click: () => {
             window.location.reload();
@@ -870,8 +870,8 @@ class FranzMenu implements StoresProps {
           type: 'separator',
         },
         {
-          label: intl.formatMessage(menuItems.lockFerdium),
-          accelerator: `${lockFerdiumShortcutKey()}`,
+          label: intl.formatMessage(menuItems.lockVelium),
+          accelerator: `${lockVeliumShortcutKey()}`,
           enabled:
             this.stores.user.isLoggedIn &&
             this.stores.settings.app.isLockingFeatureEnabled,
@@ -983,8 +983,8 @@ class FranzMenu implements StoresProps {
         dialog
           .showMessageBox({
             type: 'info',
-            title: 'Ferdium',
-            message: 'Ferdium',
+            title: 'Velium',
+            message: 'Velium',
             detail: aboutAppDetails,
             buttons: [
               intl.formatMessage(menuItems.ok),
@@ -1146,7 +1146,7 @@ class FranzMenu implements StoresProps {
               : menuItems.muteApp,
           )
           .replace('&', '&&'),
-        accelerator: `${muteFerdiumShortcutKey()}`,
+        accelerator: `${muteVeliumShortcutKey()}`,
         click: () => this.actions.app.toggleMuteApp(),
       },
       {

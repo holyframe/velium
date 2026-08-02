@@ -4,7 +4,7 @@ import { existsSync, pathExistsSync, readFileSync } from 'fs-extra';
 import { safeParseInt } from '../../jsUtils';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:Plugin:RecipeWebview',
+  'Velium:Plugin:RecipeWebview',
 );
 
 class RecipeWebview {

@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
 import { observable } from 'mobx';
 
-const debug = require('../../preload-safe-debug')('Ferdium:feature:basicAuth');
+const debug = require('../../preload-safe-debug')('Velium:feature:basicAuth');
 
 interface IAuthInfo {
   host: string;

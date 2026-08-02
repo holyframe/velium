@@ -31,7 +31,7 @@ import ReleaseNotesScreen from './containers/settings/ReleaseNotesScreen';
 import ReleaseNotesWindow from './containers/settings/ReleaseNotesWindow';
 import ServicesScreen from './containers/settings/ServicesScreen';
 import SettingsWindow from './containers/settings/SettingsWindow';
-import SupportFerdiumScreen from './containers/settings/SupportScreen';
+import SupportVeliumScreen from './containers/settings/SupportScreen';
 import TeamScreen from './containers/settings/TeamScreen';
 import { WORKSPACES_ROUTES } from './features/workspaces/constants';
 import EditWorkspaceScreen from './features/workspaces/containers/EditWorkspaceScreen';
@@ -46,7 +46,7 @@ interface IProps {
 
 @inject('stores', 'actions')
 @observer
-class FerdiumRoutes extends Component<IProps> {
+class VeliumRoutes extends Component<IProps> {
   render(): ReactElement {
     const { history, stores, actions } = this.props;
     const routeProps: StoresProps = { stores: stores!, actions: actions! };
@@ -186,7 +186,7 @@ class FerdiumRoutes extends Component<IProps> {
               <Route
                 path="/settings/support"
                 // @ts-expect-error Fix me
-                element={<SupportFerdiumScreen {...this.props} />}
+                element={<SupportVeliumScreen {...this.props} />}
               />
               <Route
                 path="/settings/releasenotes"
@@ -201,4 +201,4 @@ class FerdiumRoutes extends Component<IProps> {
   }
 }
 
-export default FerdiumRoutes;
+export default VeliumRoutes;

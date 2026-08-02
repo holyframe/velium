@@ -2,7 +2,7 @@ import { session } from '@electron/remote';
 import { action, autorun, observable } from 'mobx';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:serviceProxy',
+  'Velium:feature:serviceProxy',
 );
 
 export const config = observable({

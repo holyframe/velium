@@ -39,9 +39,9 @@ const messages = defineMessages({
     id: 'settings.navigation.releaseNotes',
     defaultMessage: 'Release Notes',
   },
-  supportFerdium: {
-    id: 'settings.navigation.supportFerdium',
-    defaultMessage: 'About Ferdium',
+  supportVelium: {
+    id: 'settings.navigation.supportVelium',
+    defaultMessage: 'About Velium',
   },
   logout: {
     id: 'settings.navigation.logout',
@@ -69,7 +69,7 @@ class SettingsNavigation extends Component<IProps> {
     localStorage.removeItem('authToken');
 
     if (isUsingWithoutAccount) {
-      // Reset server back to Ferdium API
+      // Reset server back to Velium API
       this.props.actions!.settings.update({
         type: 'app',
         data: {
@@ -81,7 +81,7 @@ class SettingsNavigation extends Component<IProps> {
 
     this.props.stores!.router.push('/auth/welcome');
 
-    // Reload Ferdium, otherwise many settings won't sync correctly with the server
+    // Reload Velium, otherwise many settings won't sync correctly with the server
     // after logging into another account
     window.location.reload();
   }
@@ -185,7 +185,7 @@ class SettingsNavigation extends Component<IProps> {
               : 'settings-navigation__link'
           }
         >
-          {intl.formatMessage(messages.supportFerdium)}
+          {intl.formatMessage(messages.supportVelium)}
         </NavLink>
         <span className="settings-navigation__expander" />
         <button

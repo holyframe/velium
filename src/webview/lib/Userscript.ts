@@ -16,7 +16,7 @@ export default class Userscript {
   // Service configuration
   config = {};
 
-  // Ferdium and service settings
+  // Velium and service settings
   settings = {};
 
   constructor(recipe, controller, config) {
@@ -27,7 +27,7 @@ export default class Userscript {
   }
 
   /**
-   * Set internal copy of Ferdium's settings.
+   * Set internal copy of Velium's settings.
    * This is only used internally and can not be used to change any settings
    *
    * @param {*} settings

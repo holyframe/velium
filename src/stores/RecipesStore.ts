@@ -12,7 +12,7 @@ import CachedRequest from './lib/CachedRequest';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:RecipeStore');
+const debug = require('../preload-safe-debug')('Velium:RecipeStore');
 
 export default class RecipesStore extends TypedStore {
   @observable allRecipesRequest = new CachedRequest(this.api.recipes, 'all');

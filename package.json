@@ -1,13 +1,13 @@
 {
-  "name": "ferdium",
-  "productName": "Ferdium",
-  "desktopName": "ferdium.desktop",
-  "appId": "org.ferdium.ferdium-app",
+  "name": "velium",
+  "productName": "Velium",
+  "desktopName": "velium.desktop",
+  "appId": "org.velium.velium-app",
   "version": "7.1.3-nightly.3",
   "description": "Messaging app for WhatsApp, Slack, Telegram, Hangouts and many many more.",
-  "author": "Ferdium Contributors <hello@ferdium.org> (https://ferdium.org/)",
+  "author": "Velium",
   "license": "Apache-2.0",
-  "copyright": "org.ferdium",
+  "copyright": "Velium",
   "main": "index.js",
   "homepage": "https://github.com/ferdium/ferdium-app",
   "repository": "https://github.com/ferdium/ferdium-app.git",
@@ -47,7 +47,7 @@
     "minify-images": "./scripts/minify-images.sh",
     "start:server": "ts-node src/internal-server/test.ts",
     "add-crowdin-contributors": "ts-node scripts/add-crowdin-contributors.ts",
-    "debug": "cross-env-shell DEBUG_COLORS=1 DEBUG=Ferdium:* pnpm start:all-dev"
+    "debug": "cross-env-shell DEBUG_COLORS=1 DEBUG=Velium:* pnpm start:all-dev"
   },
   "dependencies": {
     "@adonisjs/ace": "5.1.0",

@@ -1,7 +1,7 @@
 /**
  * Context Menu builder.
  *
- * Based on "electron-spellchecker"'s  ContextMenuBuilder but customized for Ferdium
+ * Based on "electron-spellchecker"'s  ContextMenuBuilder but customized for Velium
  * and for usage with Electron's built-in spellchecker
  *
  * Source: https://github.com/electron-userland/electron-spellchecker/blob/master/src/context-menu-builder.js
@@ -180,7 +180,7 @@ interface ContextMenuStringTable {
   }) => string;
   openLinkUrl: () => string;
   openInBrowser: () => string;
-  openInFerdium: () => string;
+  openInVelium: () => string;
   copyLinkUrl: () => string;
   copyImageUrl: () => string;
   copyImage: () => string;
@@ -226,8 +226,8 @@ const contextMenuStringTable: ContextMenuStringTable = {
     getTranslatedTextSync('contextMenu.openLinkUrl', 'Open Link'),
   openInBrowser: () =>
     getTranslatedTextSync('contextMenu.openInBrowser', 'Open in Browser'),
-  openInFerdium: () =>
-    getTranslatedTextSync('contextMenu.openInFerdium', 'Open in Ferdium'),
+  openInVelium: () =>
+    getTranslatedTextSync('contextMenu.openInVelium', 'Open in Velium'),
   copyLinkUrl: () =>
     getTranslatedTextSync('contextMenu.copyLinkUrl', 'Copy Link'),
   copyImageUrl: () =>
@@ -379,7 +379,7 @@ export class ContextMenuBuilder {
     this.copyPageUrl(menu, menuInfo);
     this.addSeparator(menu);
     this.openInBrowser(menu, menuInfo);
-    this.openInFerdium(menu, menuInfo);
+    this.openInVelium(menu, menuInfo);
     this.addSeparator(menu);
     this.goToHomePage(menu, menuInfo);
 
@@ -439,7 +439,7 @@ export class ContextMenuBuilder {
     this.copyPageUrl(menu, menuInfo);
     this.addSeparator(menu);
     this.openInBrowser(menu, menuInfo);
-    this.openInFerdium(menu, menuInfo);
+    this.openInVelium(menu, menuInfo);
     this.addSeparator(menu);
     this.goToHomePage(menu, menuInfo);
 
@@ -471,7 +471,7 @@ export class ContextMenuBuilder {
     this.copyPageUrl(menu, menuInfo);
     this.addSeparator(menu);
     this.openInBrowser(menu, menuInfo);
-    this.openInFerdium(menu, menuInfo);
+    this.openInVelium(menu, menuInfo);
     this.addSeparator(menu);
     this.goToHomePage(menu, menuInfo);
 
@@ -1057,13 +1057,13 @@ export class ContextMenuBuilder {
   /**
    * Adds the 'open in ferdium' menu item.
    */
-  openInFerdium(
+  openInVelium(
     menu: Electron.CrossProcessExports.Menu,
     menuInfo: IContextMenuParams,
   ): void {
     menu.append(
       new MenuItem({
-        label: this.stringTable.openInFerdium(),
+        label: this.stringTable.openInVelium(),
         enabled: true,
         click: () => {
           window.location.href = menuInfo.linkURL;

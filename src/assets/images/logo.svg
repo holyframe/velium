@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 1e3 1e3" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="circle1016_00000137847432078275244850000011627749736657852824_" x1="82.176" x2="430.16" y1="429.59" y2="81.61" gradientTransform="matrix(1.9606 0 0 1.9606 -2.2116 -1.0353)" gradientUnits="userSpaceOnUse"><stop stop-color="#7266F0" offset="0"/><stop stop-color="#734ED3" offset="1"/></linearGradient></defs>
-    
-<g clip-rule="evenodd" fill-rule="evenodd" stroke-width="1.9606"><circle cx="500.09" cy="500.09" r="482.5" fill="url(#circle1016_00000137847432078275244850000011627749736657852824_)"/><path class="st4" d="m500.88 391.67c-28.036 0-162.14 104.5-185.08 104.5-24.703 0-179.98-59.994-197.82-48.034-9.999 21.567 152.14 191.35 196.26 191.35 43.329 0 171.75-90.383 186.65-90.383 14.9 0 143.32 90.383 186.65 90.383 44.113 0 206.25-169.79 196.26-191.35-17.841-12.156-173.12 48.034-197.82 48.034-22.939 0-157.04-104.5-185.08-104.5z" fill="#fff"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="velium-logo-title">
+  <title id="velium-logo-title">Velium</title>
+  <defs>
+    <linearGradient id="velium-background" x1="0.1" y1="0.05" x2="0.9" y2="0.95">
+      <stop offset="0" stop-color="#6d5ef6"/>
+      <stop offset="1" stop-color="#17113f"/>
+    </linearGradient>
+    <linearGradient id="velium-highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="52" y="52" width="920" height="920" rx="190" fill="url(#velium-background)"/>
+  <ellipse cx="520" cy="285" rx="395" ry="215" fill="url(#velium-highlight)" clip-path="inset(52px round 190px)"/>
+  <path d="M190 245h170l152 380-48 195z" fill="#fff"/>
+  <path d="m512 625 152-380h170L560 820h-96z" fill="#5be2ff"/>
+</svg>

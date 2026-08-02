@@ -2,7 +2,7 @@ import { computed } from 'mobx';
 import FeatureStore from '../utils/FeatureStore';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:communityRecipes:store',
+  'Velium:feature:communityRecipes:store',
 );
 
 export class CommunityRecipesStore extends FeatureStore {

@@ -10,7 +10,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import type { StoresProps } from '../../@types/ferdium-components.types';
 import SandboxTransferList from './SandboxTransferList';
 
-const debug = require('../../preload-safe-debug')('Ferdium:Settings');
+const debug = require('../../preload-safe-debug')('Velium:Settings');
 
 const messages = defineMessages({
   addCustomSandbox: {

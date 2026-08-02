@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
 import { safeParseInt } from '../jsUtils';
 
-const debug = require('../preload-safe-debug')('Ferdium:Plugin:BadgeHandler');
+const debug = require('../preload-safe-debug')('Velium:Plugin:BadgeHandler');
 
 export default class BadgeHandler {
   setBadge(

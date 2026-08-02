@@ -126,7 +126,7 @@ export default class Recipe implements IRecipe {
     }
 
     if (!data.id) {
-      // Ferdium 4 recipes do not have an Id
+      // Velium 4 recipes do not have an Id
       throw new Error(`Recipe '${data.name}' requires Id`);
     }
 

@@ -285,7 +285,7 @@ export const TRANSLATOR_ENGINE_GOOGLE = 'Google';
 export const TRANSLATOR_ENGINE_LIBRETRANSLATE = 'LibreTranslate';
 export const TRANSLATOR_ENGINE_NAMES = {
   [TRANSLATOR_ENGINE_LIBRETRANSLATE]:
-    'Ferdium Translator (Powered by LibreTranslate)',
+    'Velium Translator (Powered by LibreTranslate)',
   [TRANSLATOR_ENGINE_GOOGLE]: 'Google',
 };
 
@@ -514,10 +514,14 @@ export const FERDIUM_DEV_DOCS =
 
 export const FILE_SYSTEM_SETTINGS_TYPES = ['app', 'proxy', 'shortcuts'];
 
-export const LOCAL_SERVER = 'You are using Ferdium without a server';
-export const SERVER_NOT_LOADED = 'Ferdium::SERVER_NOT_LOADED';
+export const LOCAL_SERVER = 'You are using Velium without a server';
+export const SERVER_NOT_LOADED = 'Velium::SERVER_NOT_LOADED';
 
-export const ALLOWED_PROTOCOLS = ['https:', 'http:', 'ftp:', 'ferdium:'];
+export const ALLOWED_PROTOCOLS = ['https:', 'http:', 'ftp:', 'velium:'];
+
+// Local Velium builds have no trusted release channel. Keep the upstream
+// Ferdium updater disabled so this build cannot silently replace itself.
+export const ENABLE_APP_UPDATES = false;
 
 export const DEFAULT_TODOS_WIDTH = 300;
 export const TODOS_MIN_WIDTH = 200;
@@ -567,7 +571,7 @@ export const DEFAULT_APP_SETTINGS = {
   enableGPUAcceleration: true,
   enableGlobalHideShortcut: false,
 
-  // Ferdium specific options
+  // Velium specific options
   server: LIVE_FERDIUM_API,
   predefinedTodoServer: TODO_TODOIST_URL,
   autohideMenuBar: false,
@@ -584,7 +588,7 @@ export const DEFAULT_APP_SETTINGS = {
   wakeUpHibernationStrategy: '0', // seconds -- 0 means do the same as hibernationStrategy
   wakeUpHibernationSplay: true,
   inactivityLock: 0,
-  automaticUpdates: true,
+  automaticUpdates: false,
   universalDarkMode: true,
   userAgentPref: '',
   downloadFolderPath: '',

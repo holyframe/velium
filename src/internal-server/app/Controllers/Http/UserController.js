@@ -39,7 +39,7 @@ const DEFAULT_USER_DATA = {
   email: '',
   emailValidated: true,
   features: {},
-  firstname: 'Ferdium',
+  firstname: 'Velium',
   id: '82c1cf9d-ab58-4da2-b55e-aaa41d2142d8',
   isSubscriptionOwner: true,
   lastname: 'Application',
@@ -218,7 +218,7 @@ class UserController {
     }
 
     return response.send(
-      'Your account has been imported. You can now use your Franz account in Ferdium.',
+      'Your account has been imported. You can now use your Franz account in Velium.',
     );
   }
 
@@ -230,7 +230,7 @@ class UserController {
     const workspaces = allWorkspaces.toJSON();
 
     const exportData = {
-      username: 'Ferdium',
+      username: 'Velium',
       mail: 'internal@ferdium.org',
       services,
       workspaces,
@@ -242,7 +242,7 @@ class UserController {
       .send(exportData);
   }
 
-  async importFerdium({ request, response }) {
+  async importVelium({ request, response }) {
     const validation = await validateAll(request.all(), {
       file: 'required',
     });

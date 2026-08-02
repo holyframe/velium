@@ -25,7 +25,7 @@ import {
   isSnap,
   isWinPortable,
   isWindows,
-  lockFerdiumShortcutKey,
+  lockVeliumShortcutKey,
 } from '../../../environment';
 import {
   ferdiumVersion,
@@ -48,9 +48,7 @@ import Input from '../../ui/input/index';
 import Toggle from '../../ui/toggle';
 import SandboxServiceTabs from '../SandboxServiceTabs';
 
-const debug = require('../../../preload-safe-debug')(
-  'Ferdium:EditSettingsForm',
-);
+const debug = require('../../../preload-safe-debug')('Velium:EditSettingsForm');
 
 const messages = defineMessages({
   headlineGeneral: {
@@ -64,17 +62,17 @@ const messages = defineMessages({
   sentryInfo: {
     id: 'settings.app.sentryInfo',
     defaultMessage:
-      'Sending telemetry data allows us to find errors in Ferdium - we will not send any personal information like your message data!',
+      'Sending telemetry data allows us to find errors in Velium - we will not send any personal information like your message data!',
   },
   hibernateInfo: {
     id: 'settings.app.hibernateInfo',
     defaultMessage:
-      'By default, Ferdium will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
+      'By default, Velium will keep all your services open and loaded in the background so they are ready when you want to use them. Service Hibernation will unload your services after a specified amount. This is useful to save RAM or keeping services from slowing down your computer.',
   },
   inactivityLockInfo: {
     id: 'settings.app.inactivityLockInfo',
     defaultMessage:
-      'Minutes of inactivity, after which Ferdium should automatically lock. Use 0 to disable',
+      'Minutes of inactivity, after which Velium should automatically lock. Use 0 to disable',
   },
   lockAfterInactivity: {
     id: 'settings.app.lockAfterInactivity',
@@ -82,7 +80,7 @@ const messages = defineMessages({
   },
   todoServerInfo: {
     id: 'settings.app.todoServerInfo',
-    defaultMessage: 'This server will be used for the "Ferdium Todo" feature.',
+    defaultMessage: 'This server will be used for the "Velium Todo" feature.',
   },
   lockedPassword: {
     id: 'settings.app.lockedPassword',
@@ -91,12 +89,12 @@ const messages = defineMessages({
   lockedPasswordInfo: {
     id: 'settings.app.lockedPasswordInfo',
     defaultMessage:
-      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall Ferdium.",
+      "Please make sure to set a password you'll remember.\nIf you loose this password, you will have to reinstall Velium.",
   },
   lockInfo: {
     id: 'settings.app.lockInfo',
     defaultMessage:
-      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password every time you start Ferdium or lock Ferdium yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
+      'Password Lock allows you to keep your messages protected.\nUsing Password Lock, you will be prompted to enter your password every time you start Velium or lock Velium yourself using the lock symbol in the bottom left corner or the shortcut {lockShortcut}.',
   },
   scheduledDNDTimeInfo: {
     id: 'settings.app.scheduledDNDTimeInfo',
@@ -106,7 +104,7 @@ const messages = defineMessages({
   scheduledDNDInfo: {
     id: 'settings.app.scheduledDNDInfo',
     defaultMessage:
-      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from Ferdium.',
+      'Scheduled Do-not-Disturb allows you to define a period of time in which you do not want to get Notifications from Velium.',
   },
   headlineLanguage: {
     id: 'settings.app.headlineLanguage',
@@ -192,12 +190,12 @@ const messages = defineMessages({
   },
   translationHelp: {
     id: 'settings.app.translationHelp',
-    defaultMessage: 'Help us to translate Ferdium into your language.',
+    defaultMessage: 'Help us to translate Velium into your language.',
   },
   spellCheckerLanguageInfo: {
     id: 'settings.app.spellCheckerLanguageInfo',
     defaultMessage:
-      "Ferdium uses your Mac's built-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
+      "Velium uses your Mac's built-in spellchecker to check for typos. If you want to change the languages the spellchecker checks for, you can do so in your Mac's System Preferences.",
   },
   subheadlineCache: {
     id: 'settings.app.subheadlineCache',
@@ -217,22 +215,22 @@ const messages = defineMessages({
   },
   cacheInfo: {
     id: 'settings.app.cacheInfo',
-    defaultMessage: 'Ferdium cache is currently using {size} of disk space.',
+    defaultMessage: 'Velium cache is currently using {size} of disk space.',
   },
   cacheNotCleared: {
     id: 'settings.app.cacheNotCleared',
     defaultMessage: "Couldn't clear all cache",
   },
-  subheadlineFerdiumProfile: {
-    id: 'settings.app.subheadlineFerdiumProfile',
-    defaultMessage: 'Ferdium Profile',
+  subheadlineVeliumProfile: {
+    id: 'settings.app.subheadlineVeliumProfile',
+    defaultMessage: 'Velium Profile',
   },
-  buttonOpenFerdiumProfileFolder: {
-    id: 'settings.app.buttonOpenFerdiumProfileFolder',
+  buttonOpenVeliumProfileFolder: {
+    id: 'settings.app.buttonOpenVeliumProfileFolder',
     defaultMessage: 'Open Profile folder',
   },
-  buttonOpenFerdiumServiceRecipesFolder: {
-    id: 'settings.app.buttonOpenFerdiumServiceRecipesFolder',
+  buttonOpenVeliumServiceRecipesFolder: {
+    id: 'settings.app.buttonOpenVeliumServiceRecipesFolder',
     defaultMessage: 'Open Service Recipes folder',
   },
   buttonOpenImportExport: {
@@ -273,7 +271,7 @@ const messages = defineMessages({
   },
   updateStatusUpToDate: {
     id: 'settings.app.updateStatusUpToDate',
-    defaultMessage: 'You are using the latest version of Ferdium',
+    defaultMessage: 'You are using the latest version of Velium',
   },
   servicesUpdateStatusUpToDate: {
     id: 'settings.app.servicesUpdateStatusUpToDate',
@@ -307,10 +305,10 @@ const messages = defineMessages({
   infoOpenCertificatesFolder: {
     id: 'settings.app.infoOpenCertificatesFolder',
     defaultMessage:
-      'To install a certificate, click the button below to open the certificates folder and copy it into the folder. After that you can refresh the service (CTRL/CMD + R). To remove/uninstall, simply delete the certificate file and restart Ferdium.',
+      'To install a certificate, click the button below to open the certificates folder and copy it into the folder. After that you can refresh the service (CTRL/CMD + R). To remove/uninstall, simply delete the certificate file and restart Velium.',
   },
-  buttonOpenFerdiumCertsFolder: {
-    id: 'settings.app.buttonOpenFerdiumCertsFolder',
+  buttonOpenVeliumCertsFolder: {
+    id: 'settings.app.buttonOpenVeliumCertsFolder',
     defaultMessage: 'Open certificates folder',
   },
   buttonOpenFolderSelector: {
@@ -320,7 +318,7 @@ const messages = defineMessages({
   sandboxServicesInfo: {
     id: 'settings.app.sandboxServicesInfo',
     defaultMessage:
-      'By default, Ferdium sandboxes all services, meaning that each service runs in its own isolated environment (recommended). This is a security feature that prevents services from accessing each other’s data. You can create custom sandboxes to group services together by adding a custom sandbox - this way, services can share data between them if they are in the same sandbox. You can also disable sandboxing entirely for all services - allowing them to access each other’s data (not recommended).',
+      'By default, Velium sandboxes all services, meaning that each service runs in its own isolated environment (recommended). This is a security feature that prevents services from accessing each other’s data. You can create custom sandboxes to group services together by adding a custom sandbox - this way, services can share data between them if they are in the same sandbox. You can also disable sandboxing entirely for all services - allowing them to access each other’s data (not recommended).',
   },
   sectionSandboxes: {
     id: 'settings.app.sectionSandboxes',
@@ -1047,7 +1045,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                 >
                   <span>
                     {intl.formatMessage(messages.lockInfo, {
-                      lockShortcut: `${lockFerdiumShortcutKey(false)}`,
+                      lockShortcut: `${lockVeliumShortcutKey(false)}`,
                     })}
                   </span>
                 </p>
@@ -1134,7 +1132,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                       <Button
                         buttonType="secondary"
                         label={intl.formatMessage(
-                          messages.buttonOpenFerdiumCertsFolder,
+                          messages.buttonOpenVeliumCertsFolder,
                         )}
                         className="settings__open-settings-file-button"
                         onClick={() => openPath(certsFolder)}
@@ -1247,14 +1245,14 @@ class EditSettingsForm extends Component<IProps, IState> {
 
                 <div className="settings__settings-group">
                   <H3>
-                    {intl.formatMessage(messages.subheadlineFerdiumProfile)}
+                    {intl.formatMessage(messages.subheadlineVeliumProfile)}
                   </H3>
 
                   <div className="settings__open-settings-file-container">
                     <Button
                       buttonType="secondary"
                       label={intl.formatMessage(
-                        messages.buttonOpenFerdiumProfileFolder,
+                        messages.buttonOpenVeliumProfileFolder,
                       )}
                       className="settings__open-settings-file-button"
                       onClick={() => openPath(profileFolder)}
@@ -1262,7 +1260,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                     <Button
                       buttonType="secondary"
                       label={intl.formatMessage(
-                        messages.buttonOpenFerdiumServiceRecipesFolder,
+                        messages.buttonOpenVeliumServiceRecipesFolder,
                       )}
                       className="settings__open-settings-file-button"
                       onClick={() => openPath(recipeFolder)}
@@ -1398,7 +1396,7 @@ class EditSettingsForm extends Component<IProps, IState> {
                   </>
                 )}
                 <p className="settings__message">
-                  <Icon icon={mdiGithub} /> Ferdium is based on{' '}
+                  <Icon icon={mdiGithub} /> Velium is based on{' '}
                   <a
                     href={`${GITHUB_FRANZ_URL}/franz`}
                     target="_blank"

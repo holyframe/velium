@@ -18,7 +18,11 @@ import { v4 as uuidV4 } from 'uuid';
 import type { Stores } from '../@types/stores.types';
 import type { Actions } from '../actions/lib/actions';
 import type { ApiInterface } from '../api';
-import { CHECK_INTERVAL, DEFAULT_APP_SETTINGS } from '../config';
+import {
+  CHECK_INTERVAL,
+  DEFAULT_APP_SETTINGS,
+  ENABLE_APP_UPDATES,
+} from '../config';
 import {
   electronVersion,
   isMac,
@@ -42,7 +46,7 @@ import { cleanseJSObject } from '../jsUtils';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:AppStore');
+const debug = require('../preload-safe-debug')('Velium:AppStore');
 
 const mainWindow = getCurrentWindow();
 
@@ -52,7 +56,7 @@ const executablePath = isMac
     ? process.env.PORTABLE_EXECUTABLE_FILE
     : process.execPath;
 const autoLauncher = new AutoLaunch({
-  name: 'Ferdium',
+  name: 'Velium',
   path: executablePath,
 });
 
@@ -212,7 +216,7 @@ export default class AppStore extends TypedStore {
 
     this.isOnline = navigator.onLine;
 
-    // Check if Ferdium should launch on start
+    // Check if Velium should launch on start
     // Needs to be delayed a bit
     this._autoStart();
 
@@ -350,9 +354,9 @@ export default class AppStore extends TypedStore {
         getTranslatedText(
           this.locale,
           'app.welcomeNotification.title',
-          // `Welcome to Ferdium ${ferdiumVersion}`,
+          // `Welcome to Velium ${ferdiumVersion}`,
           // { version: ferdiumVersion },
-          `Welcome to Ferdium ${ferdiumVersion.split('.')[0]}`,
+          `Welcome to Velium ${ferdiumVersion.split('.')[0]}`,
           { version: ferdiumVersion.split('.')[0] },
         ),
         {
@@ -567,7 +571,11 @@ export default class AppStore extends TypedStore {
   }
 
   @action _checkForUpdates() {
-    if (this.isOnline && this.stores.settings.app.automaticUpdates) {
+    if (
+      ENABLE_APP_UPDATES &&
+      this.isOnline &&
+      this.stores.settings.app.automaticUpdates
+    ) {
       debug('_checkForUpdates: sending event to autoUpdate:check');
       this.updateStatus = this.updateStatusTypes.CHECKING;
       ipcRenderer.send('autoUpdate', {

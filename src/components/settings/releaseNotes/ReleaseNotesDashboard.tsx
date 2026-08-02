@@ -4,8 +4,8 @@ import { Component } from 'react';
 import { type IntlShape, defineMessages, injectIntl } from 'react-intl';
 import { ferdiumVersion } from '../../../environment-remote';
 import {
-  getFerdiumVersion,
   getUpdateInfoFromGH,
+  getVeliumVersion,
 } from '../../../helpers/update-helpers';
 
 const messages = defineMessages({
@@ -68,7 +68,7 @@ class ReleaseNotesDashboard extends Component<IProps, IState> {
       <div className="settings__main">
         <div className="settings__header">
           <span className="settings__header-item">
-            Ferdium {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
+            Velium {getVeliumVersion(window.location.href, ferdiumVersion)}{' '}
             {' | '}
           </span>
           <span className="settings__header-item__secondary">

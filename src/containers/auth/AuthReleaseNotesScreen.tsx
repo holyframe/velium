@@ -7,8 +7,8 @@ import { type IntlShape, defineMessages, injectIntl } from 'react-intl';
 import Icon from '../../components/ui/icon';
 import { ferdiumVersion } from '../../environment-remote';
 import {
-  getFerdiumVersion,
   getUpdateInfoFromGH,
+  getVeliumVersion,
 } from '../../helpers/update-helpers';
 import { openExternalUrl } from '../../helpers/url-helpers';
 
@@ -75,7 +75,7 @@ class AuthReleaseNotesScreen extends Component<IProps, IState> {
         <div className="auth__main--releasenotes">
           <div className="auth__header">
             <span className="auth__header-item">
-              Ferdium {getFerdiumVersion(window.location.href, ferdiumVersion)}{' '}
+              Velium {getVeliumVersion(window.location.href, ferdiumVersion)}{' '}
               {' | '}
             </span>
             <span className="auth__header-item__secondary">

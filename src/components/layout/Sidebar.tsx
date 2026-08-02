@@ -24,8 +24,8 @@ import type { Actions } from '../../actions/lib/actions';
 import {
   addNewServiceShortcutKey,
   downloadsShortcutKey,
-  lockFerdiumShortcutKey,
-  muteFerdiumShortcutKey,
+  lockVeliumShortcutKey,
+  muteVeliumShortcutKey,
   settingsShortcutKey,
   splitModeToggleShortcutKey,
   todosToggleShortcutKey,
@@ -66,15 +66,15 @@ const messages = defineMessages({
   },
   openTodosDrawer: {
     id: 'sidebar.openTodosDrawer',
-    defaultMessage: 'Open Ferdium Todos',
+    defaultMessage: 'Open Velium Todos',
   },
   closeTodosDrawer: {
     id: 'sidebar.closeTodosDrawer',
-    defaultMessage: 'Close Ferdium Todos',
+    defaultMessage: 'Close Velium Todos',
   },
-  lockFerdium: {
-    id: 'sidebar.lockFerdium',
-    defaultMessage: 'Lock Ferdium',
+  lockVelium: {
+    id: 'sidebar.lockVelium',
+    defaultMessage: 'Lock Velium',
   },
 });
 
@@ -298,7 +298,7 @@ class Sidebar extends Component<IProps, IState> {
             data-tooltip-id="tooltip-sidebar-button"
             data-tooltip-content={`${intl.formatMessage(
               isAppMuted ? messages.unmute : messages.mute,
-            )} (${muteFerdiumShortcutKey(false)})`}
+            )} (${muteVeliumShortcutKey(false)})`}
           >
             <Icon icon={isAppMuted ? mdiBellOff : mdiBell} size={1.5} />
           </button>
@@ -336,8 +336,8 @@ class Sidebar extends Component<IProps, IState> {
             }}
             data-tooltip-id="tooltip-sidebar-button"
             data-tooltip-content={`${intl.formatMessage(
-              messages.lockFerdium,
-            )} (${lockFerdiumShortcutKey(false)})`}
+              messages.lockVelium,
+            )} (${lockVeliumShortcutKey(false)})`}
           >
             <Icon icon={mdiLock} size={1.5} />
           </button>

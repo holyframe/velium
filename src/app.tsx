@@ -14,7 +14,7 @@ import TouchBarFactory from './lib/TouchBar';
 import storeFactory from './stores';
 
 import I18N from './I18n';
-import FerdiumRoutes from './routes';
+import VeliumRoutes from './routes';
 
 // Basic electron Setup
 webFrame.setVisualZoomLevelLimits(1, 1);
@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
       const preparedApp = (
         <Provider stores={stores} actions={actions}>
           <I18N stores={{ app: stores.app, user: stores.user }}>
-            <FerdiumRoutes history={history} />
+            <VeliumRoutes history={history} />
           </I18N>
         </Provider>
       );

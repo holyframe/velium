@@ -2,14 +2,14 @@ const { convertToJSON } = require('../../jsUtils');
 const { ferdiumVersion } = require('../../environment-remote');
 
 /**
- * Migrate server database to work with current Ferdium version
+ * Migrate server database to work with current Velium version
  */
 const Database = use('Database');
 const User = use('App/Models/User');
 
 const migrateLog = text => {
   // eslint-disable-next-line no-console
-  console.log('\u001B[36m%s\u001B[0m', 'Ferdium Migration:', '\u001B[0m', text);
+  console.log('\u001B[36m%s\u001B[0m', 'Velium Migration:', '\u001B[0m', text);
 };
 
 module.exports = async () => {
@@ -25,7 +25,7 @@ module.exports = async () => {
   if (user) {
     settings = convertToJSON(user.settings);
   } else {
-    migrateLog("🎩  Migrating from old Ferdium version as user doesn't exist");
+    migrateLog("🎩  Migrating from old Velium version as user doesn't exist");
 
     // Create new user
     await Database.raw('INSERT INTO  "users" ("id") VALUES (\'1\');');
@@ -39,7 +39,7 @@ module.exports = async () => {
     const srcVersion = settings?.db_version || '5.4.0-beta.2';
     migrateLog(`🔮  Migrating table from ${srcVersion} to ${ferdiumVersion}`);
 
-    // Migrate database to current Ferdium version
+    // Migrate database to current Velium version
     // Currently no migrations
 
     // Update version number in database

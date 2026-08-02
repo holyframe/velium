@@ -2,7 +2,7 @@ import { ipcMain } from 'electron';
 import { isMac } from '../../environment';
 import { isDevMode } from '../../environment-remote';
 
-const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:dnd');
+const debug = require('../../preload-safe-debug')('Velium:ipcApi:dnd');
 
 export default async () => {
   ipcMain.handle('get-dnd', async () => {

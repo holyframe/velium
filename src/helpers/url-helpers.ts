@@ -5,7 +5,7 @@ import { ensureDirSync, existsSync } from 'fs-extra';
 import normalizeUrl from 'normalize-url';
 import { ALLOWED_PROTOCOLS } from '../config';
 
-const debug = require('../preload-safe-debug')('Ferdium:Helpers:url');
+const debug = require('../preload-safe-debug')('Velium:Helpers:url');
 
 export const isValidExternalURL = (url: string | URL): boolean => {
   let parsedUrl: URL;

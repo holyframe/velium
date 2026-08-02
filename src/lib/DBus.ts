@@ -4,14 +4,14 @@ import { comparer } from 'mobx';
 import { type MessageBus, sessionBus } from 'dbus-next';
 import { isLinux } from '../environment';
 import type TrayIcon from './Tray';
-import Ferdium, { type UnreadServices } from './dbus/Ferdium';
+import Velium, { type UnreadServices } from './dbus/Velium';
 
 export default class DBus {
   private bus: MessageBus | null = null;
 
   trayIcon: TrayIcon;
 
-  private ferdium: Ferdium | null = null;
+  private ferdium: Velium | null = null;
 
   muted = false;
 
@@ -78,13 +78,13 @@ export default class DBus {
 
     try {
       this.bus = sessionBus();
-      await this.bus.requestName('org.ferdium.Ferdium', 0);
+      await this.bus.requestName('org.ferdium.Velium', 0);
     } catch {
       // Error connecting to the bus.
       return;
     }
 
-    this.ferdium = new Ferdium(this);
+    this.ferdium = new Velium(this);
     this.bus.export('/org/ferdium', this.ferdium);
 
     // HACK Hook onto the MessageBus to track StatusNotifierWatchers

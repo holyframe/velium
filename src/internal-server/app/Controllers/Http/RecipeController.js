@@ -4,7 +4,7 @@ const { validateAll } = use('Validator');
 const Env = use('Env');
 
 const debug = require('../../../../preload-safe-debug')(
-  'Ferdium:internalServer:RecipeController',
+  'Velium:internalServer:RecipeController',
 );
 const { LIVE_FERDIUM_API } = require('../../../../config');
 const { convertToJSON } = require('../../../../jsUtils');

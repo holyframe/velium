@@ -16,7 +16,7 @@ import { DEBUG_API } from '../../config';
 import { state as ModalState } from './store';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:publishDebugInfo',
+  'Velium:feature:publishDebugInfo',
 );
 
 const messages = defineMessages({
@@ -27,7 +27,7 @@ const messages = defineMessages({
   info: {
     id: 'feature.publishDebugInfo.info',
     defaultMessage:
-      "Publishing your debug information helps us find issues and errors in Ferdium. By publishing your debug information you accept Ferdium Debugger's privacy policy and terms of service",
+      "Publishing your debug information helps us find issues and errors in Velium. By publishing your debug information you accept Velium Debugger's privacy policy and terms of service",
   },
   error: {
     id: 'feature.publishDebugInfo.error',

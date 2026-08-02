@@ -3,7 +3,7 @@ import { action, computed, makeObservable, observable, observe } from 'mobx';
 import type ElectronWebView from 'react-electron-web-view';
 import defaultUserAgent from '../helpers/userAgent-helpers';
 
-const debug = require('../preload-safe-debug')('Ferdium:UserAgent');
+const debug = require('../preload-safe-debug')('Velium:UserAgent');
 
 export default class UserAgent {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

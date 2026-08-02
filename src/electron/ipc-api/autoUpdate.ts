@@ -2,12 +2,14 @@ import { BrowserWindow, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 // eslint-disable-next-line import/no-cycle
 import { appEvents } from '../..';
+import { ENABLE_APP_UPDATES } from '../../config';
 import { isSnap } from '../../environment';
 
-const debug = require('../../preload-safe-debug')('Ferdium:ipcApi:autoUpdate');
+const debug = require('../../preload-safe-debug')('Velium:ipcApi:autoUpdate');
 
 export default (params: { mainWindow: BrowserWindow; settings: any }) => {
-  const enableUpdate = Boolean(params.settings.app.get('automaticUpdates'));
+  const enableUpdate =
+    ENABLE_APP_UPDATES && Boolean(params.settings.app.get('automaticUpdates'));
 
   // The following line is a workaround to force the development update. Should only be used for development purposes.
   // autoUpdater.forceDevUpdateConfig = true;

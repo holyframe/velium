@@ -2,7 +2,7 @@ import { outputJsonSync, pathExistsSync, readJsonSync } from 'fs-extra';
 import { makeObservable, observable, toJS } from 'mobx';
 import { userDataPath } from '../environment-remote';
 
-const debug = require('../preload-safe-debug')('Ferdium:Settings');
+const debug = require('../preload-safe-debug')('Velium:Settings');
 
 export default class Settings {
   type: string = '';

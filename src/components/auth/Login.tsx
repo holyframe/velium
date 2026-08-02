@@ -42,7 +42,7 @@ const messages = defineMessages({
   },
   customServerQuestion: {
     id: 'login.customServerQuestion',
-    defaultMessage: 'Using a custom Ferdium server?',
+    defaultMessage: 'Using a custom Velium server?',
   },
   customServerSuggestion: {
     id: 'login.customServerSuggestion',

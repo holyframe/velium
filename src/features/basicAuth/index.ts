@@ -2,7 +2,7 @@ import { type AuthInfo, type BrowserWindow, ipcRenderer } from 'electron';
 
 import { state as ModalState } from './store';
 
-const debug = require('../../preload-safe-debug')('Ferdium:feature:basicAuth');
+const debug = require('../../preload-safe-debug')('Velium:feature:basicAuth');
 
 const state = ModalState;
 

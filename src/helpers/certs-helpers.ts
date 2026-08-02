@@ -5,7 +5,7 @@ import { ensureDirSync, readFileSync, readdirSync } from 'fs-extra';
 import { userDataCertsPath } from '../environment-remote';
 import { removeNewLines } from '../jsUtils';
 
-const debug = require('../preload-safe-debug')('Ferdium:App');
+const debug = require('../preload-safe-debug')('Velium:App');
 
 export const checkIfCertIsPresent = (clientCert: Certificate): boolean => {
   const certsFolder = userDataCertsPath();

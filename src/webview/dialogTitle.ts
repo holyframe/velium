@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
 
 const debug = require('../preload-safe-debug')(
-  'Ferdium:Plugin:DialogTitleHandler',
+  'Velium:Plugin:DialogTitleHandler',
 );
 
 export default class DialogTitleHandler {

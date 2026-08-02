@@ -5,7 +5,7 @@ import { LOCAL_HOSTNAME, LOCAL_PORT } from '../../config';
 import { userDataPath } from '../../environment-remote';
 import { server } from '../../internal-server/start';
 
-const debug = require('../../preload-safe-debug')('Ferdium:LocalServer');
+const debug = require('../../preload-safe-debug')('Velium:LocalServer');
 
 const portInUse = (port: number): Promise<boolean> =>
   new Promise(resolve => {

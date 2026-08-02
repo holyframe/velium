@@ -10,7 +10,7 @@ import type Request from '../stores/lib/Request';
 // TODO: This file will be removed in the future when all stores are
 // correctly typed and the use of these interfaces are obsolete.
 
-export interface FerdiumStores {
+export interface VeliumStores {
   app: AppStore;
   communityRecipes: CommunityRecipesStore;
   features: FeaturesStore;

@@ -13,7 +13,7 @@ import CachedRequest from './lib/CachedRequest';
 import Request from './lib/Request';
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:UserStore');
+const debug = require('../preload-safe-debug')('Velium:UserStore');
 
 // TODO: split stores into UserStore and AuthStore
 export default class UserStore extends TypedStore {

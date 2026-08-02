@@ -14,7 +14,7 @@ import {
 import { hash } from '../helpers/password-helpers';
 import TypedStore from './lib/TypedStore';
 
-const debug = require('../preload-safe-debug')('Ferdium:SettingsStore');
+const debug = require('../preload-safe-debug')('Velium:SettingsStore');
 
 export default class SettingsStore extends TypedStore {
   @observable loaded: boolean = false;

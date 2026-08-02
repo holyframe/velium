@@ -3,21 +3,21 @@ import { FERDIUM_TRANSLATION } from '../../../config';
 
 const messages = defineMessages({
   headline: {
-    id: 'settings.supportFerdium.headline',
-    defaultMessage: 'About Ferdium',
+    id: 'settings.supportVelium.headline',
+    defaultMessage: 'About Velium',
   },
   aboutIntro: {
-    id: 'settings.supportFerdium.aboutIntro',
+    id: 'settings.supportVelium.aboutIntro',
     defaultMessage: 'Special thanks goes to these awesome people:',
   },
   about: {
-    id: 'settings.supportFerdium.about',
+    id: 'settings.supportVelium.about',
     defaultMessage:
-      'The development of Ferdium is done by contributors. People who use Ferdium like you. They maintain, fix, and improve Ferdium in their spare time.',
+      'The development of Velium is done by contributors. People who use Velium like you. They maintain, fix, and improve Velium in their spare time.',
   },
 });
 
-const SupportFerdiumDashboard = () => {
+const SupportVeliumDashboard = () => {
   const intl = useIntl();
 
   return (
@@ -94,4 +94,4 @@ const SupportFerdiumDashboard = () => {
   );
 };
 
-export default SupportFerdiumDashboard;
+export default SupportVeliumDashboard;

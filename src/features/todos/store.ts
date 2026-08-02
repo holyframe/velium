@@ -22,9 +22,7 @@ import FeatureStore from '../utils/FeatureStore';
 import { todoActions } from './actions';
 import { IPC, TODOS_ROUTES } from './constants';
 
-const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:todos:store',
-);
+const debug = require('../../preload-safe-debug')('Velium:feature:todos:store');
 
 export default class TodoStore extends FeatureStore {
   @observable stores: any = null;

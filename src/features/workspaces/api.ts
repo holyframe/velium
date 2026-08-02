@@ -5,7 +5,7 @@ import Request from '../../stores/lib/Request';
 import Workspace from './models/Workspace';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:workspaces:api',
+  'Velium:feature:workspaces:api',
 );
 
 export const workspaceApi = {

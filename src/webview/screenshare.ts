@@ -1,7 +1,7 @@
 import { ipcRenderer } from 'electron';
 import { v4 as uuidV4 } from 'uuid';
 
-const debug = require('../preload-safe-debug')('Ferdium:Screenshare');
+const debug = require('../preload-safe-debug')('Velium:Screenshare');
 
 export async function getDisplayMediaSelector() {
   return new Promise((resolve, reject) => {

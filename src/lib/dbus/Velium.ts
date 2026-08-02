@@ -4,13 +4,13 @@ import type DBus from '../DBus';
 
 export type UnreadServices = [string, number, number][];
 
-export default class Ferdium extends dbus.interface.Interface {
+export default class Velium extends dbus.interface.Interface {
   constructor(private readonly dbus: DBus) {
-    super('org.ferdium.Ferdium');
+    super('org.ferdium.Velium');
   }
 
   emitMutedChanged(): void {
-    Ferdium.emitPropertiesChanged(this, { Muted: this.dbus.muted }, []);
+    Velium.emitPropertiesChanged(this, { Muted: this.dbus.muted }, []);
   }
 
   get Muted(): boolean {
@@ -36,7 +36,7 @@ export default class Ferdium extends dbus.interface.Interface {
   }
 
   emitUnreadChanged(): void {
-    Ferdium.emitPropertiesChanged(
+    Velium.emitPropertiesChanged(
       this,
       {
         UnreadDirectMessageCount: this.dbus.unreadDirectMessageCount,
@@ -60,7 +60,7 @@ export default class Ferdium extends dbus.interface.Interface {
   }
 }
 
-Ferdium.configureMembers({
+Velium.configureMembers({
   methods: {
     ToggleMute: {
       inSignature: '',

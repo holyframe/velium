@@ -57,7 +57,7 @@ import userAgent from './helpers/userAgent-helpers';
 import generatedTranslations from './i18n/translations';
 import { darkThemeGrayDarkest } from './themes/legacy';
 
-const debug = require('./preload-safe-debug')('Ferdium:App');
+const debug = require('./preload-safe-debug')('Velium:App');
 
 // Globally set useragent to fix user agent override in service workers
 debug('Set userAgent to ', userAgent());
@@ -154,7 +154,7 @@ if (gotTheLock) {
           } else if (argv.includes('--quit')) {
             // Needs to be delayed to not interfere with mainWindow.restore();
             setTimeout(() => {
-              debug('Quitting Ferdium via Task');
+              debug('Quitting Velium via Task');
               app.quit();
             }, 1);
           }
@@ -544,7 +544,7 @@ const createWindow = () => {
 // https://electronjs.org/docs/api/chrome-command-line-switches
 // used for Kerberos support
 // Usage e.g. MACOS
-// $ Ferdium.app/Contents/MacOS/Ferdium --auth-server-whitelist *.mydomain.com --auth-negotiate-delegate-whitelist *.mydomain.com
+// $ Velium.app/Contents/MacOS/Velium --auth-server-whitelist *.mydomain.com --auth-negotiate-delegate-whitelist *.mydomain.com
 const argv = minimist(process.argv.slice(1));
 
 if (argv['auth-server-whitelist']) {
@@ -589,15 +589,15 @@ app.on('ready', () => {
         arguments: `${extraArgs}--reset-window`,
         iconPath,
         iconIndex: 0,
-        title: 'Move Ferdium to Current Display',
-        description: 'Restore the position and size of Ferdium',
+        title: 'Move Velium to Current Display',
+        description: 'Restore the position and size of Velium',
       },
       {
         program: process.execPath,
         arguments: `${extraArgs}--quit`,
         iconPath,
         iconIndex: 0,
-        title: 'Quit Ferdium',
+        title: 'Quit Velium',
         description: '',
       },
     ]);
@@ -867,7 +867,7 @@ app.on('before-quit', event => {
     selection = dialog.showMessageBoxSync(mainWindow!, {
       type: 'question',
       message: 'Quit',
-      detail: 'Do you really want to quit Ferdium?',
+      detail: 'Do you really want to quit Velium?',
       buttons: ['Yes', 'No'],
     });
   }

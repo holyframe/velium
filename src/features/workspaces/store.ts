@@ -18,7 +18,7 @@ import { KEEP_WS_LOADED_USID } from '../../config';
 import type Workspace from './models/Workspace';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:feature:workspaces:store',
+  'Velium:feature:workspaces:store',
 );
 
 // Calculate animation duration based on user's motion preferences

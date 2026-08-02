@@ -2,7 +2,7 @@ import { type Session, ipcMain, session } from 'electron';
 import { TODOS_PARTITION_ID } from '../../config';
 
 const debug = require('../../preload-safe-debug')(
-  'Ferdium:ipcApi:sessionStorage',
+  'Velium:ipcApi:sessionStorage',
 );
 
 const deduceSession = (serviceId: string | undefined | null): Session => {
